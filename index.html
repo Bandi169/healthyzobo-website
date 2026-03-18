@@ -1,26 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aly P&P Healthy Zobo Drink | 100% Natural & Organic</title>
-    <meta name="description" content="Premium natural Zobo drink made with love and tradition. Available in 50cl, 1 Litre, 5 Litre kegs and bulk orders. Delivery across Lagos." />
-    <meta name="keywords" content="Zobo drink, healthy drink, hibiscus drink, natural juice, Lagos, Nigeria, Aly P&P" />
+    <meta
+      name="description"
+      content="Premium natural Zobo drink made with love and tradition. Available in 50cl, 1 Litre, 5 Litre kegs and bulk orders. Delivery across Lagos."
+    />
+    <meta
+      name="keywords"
+      content="Zobo drink, healthy drink, hibiscus drink, natural juice, Lagos, Nigeria, Aly P&P"
+    />
     <meta name="author" content="Aly P&P Healthy Drink" />
     <meta property="og:title" content="Aly P&P Healthy Zobo Drink" />
-    <meta property="og:description" content="100% Natural & Organic Zobo Drink. Order now at healthyzobo.duckdns.org" />
+    <meta
+      property="og:description"
+      content="100% Natural & Organic Zobo Drink. Order now at healthyzobo.duckdns.org"
+    />
     <meta property="og:url" content="https://healthyzobo.duckdns.org" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://healthyzobo.duckdns.org" />
-    
+
     <!-- Paystack Script -->
     <script src="https://js.paystack.co/v1/inline.js"></script>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
+
     <style>
       :root {
         --primary-red: #dc143c;
@@ -29,75 +41,230 @@
         --light-gold: #fff8dc;
         --fresh-green: #228b22;
       }
-      body { font-family: "Poppins", sans-serif; overflow-x: hidden; }
-      .font-display { font-family: "Playfair Display", serif; }
-      .zobo-gradient { background: linear-gradient(135deg, #dc143c 0%, #8b0000 50%, #4a0404 100%); }
-      .gold-text { background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-      .glass-effect { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
-      .product-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .product-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 50px -12px rgba(220, 20, 60, 0.25); }
-      .btn-order { background: linear-gradient(135deg, #228b22 0%, #006400 100%); transition: all 0.3s ease; }
-      .btn-order:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(34, 139, 34, 0.4); }
-      .cart-badge { animation: bounce 2s infinite; }
-      @keyframes bounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
-      .modal { display: none; backdrop-filter: blur(8px); }
-      .modal.active { display: flex; animation: fadeIn 0.3s ease; }
-      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-      .slide-in { animation: slideIn 0.4s ease; }
-      @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
-      .payment-option { transition: all 0.3s ease; cursor: pointer; }
-      .payment-option:hover { transform: scale(1.02); border-color: #dc143c; }
-      .payment-option.selected { border-color: #dc143c; background-color: #fef2f2; }
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+      }
+      .font-display {
+        font-family: "Playfair Display", serif;
+      }
+      .zobo-gradient {
+        background: linear-gradient(
+          135deg,
+          #dc143c 0%,
+          #8b0000 50%,
+          #4a0404 100%
+        );
+      }
+      .gold-text {
+        background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .product-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .product-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 25px 50px -12px rgba(220, 20, 60, 0.25);
+      }
+      .btn-order {
+        background: linear-gradient(135deg, #228b22 0%, #006400 100%);
+        transition: all 0.3s ease;
+      }
+      .btn-order:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(34, 139, 34, 0.4);
+      }
+      .cart-badge {
+        animation: bounce 2s infinite;
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+      .modal {
+        display: none;
+        backdrop-filter: blur(8px);
+      }
+      .modal.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .slide-in {
+        animation: slideIn 0.4s ease;
+      }
+      @keyframes slideIn {
+        from {
+          transform: translateX(100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+      .payment-option {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .payment-option:hover {
+        transform: scale(1.02);
+        border-color: #dc143c;
+      }
+      .payment-option.selected {
+        border-color: #dc143c;
+        background-color: #fef2f2;
+      }
     </style>
   </head>
   <body class="bg-gray-50">
-    
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-effect bg-white/80 border-b border-red-100">
+    <nav
+      class="fixed w-full z-50 glass-effect bg-white/80 border-b border-red-100"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
           <div class="flex items-center space-x-3">
-            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold text-xl shadow-lg">AP</div>
+            <div
+              class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white font-bold text-xl shadow-lg"
+            >
+              AP
+            </div>
             <div>
-              <h1 class="text-2xl font-black text-red-700 tracking-tight">Aly P&P</h1>
+              <h1 class="text-2xl font-black text-red-700 tracking-tight">
+                Aly P&P
+              </h1>
               <p class="text-xs text-green-700 font-semibold">Healthy Drink</p>
             </div>
           </div>
           <div class="hidden md:flex items-center space-x-8">
-            <a href="#home" class="text-gray-700 hover:text-red-600 font-medium transition">Home</a>
-            <a href="#about" class="text-gray-700 hover:text-red-600 font-medium transition">About</a>
-            <a href="#products" class="text-gray-700 hover:text-red-600 font-medium transition">Products</a>
-            <a href="#contact" class="text-gray-700 hover:text-red-600 font-medium transition">Contact</a>
+            <a
+              href="#home"
+              class="text-gray-700 hover:text-red-600 font-medium transition"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-gray-700 hover:text-red-600 font-medium transition"
+              >About</a
+            >
+            <a
+              href="#products"
+              class="text-gray-700 hover:text-red-600 font-medium transition"
+              >Products</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-700 hover:text-red-600 font-medium transition"
+              >Contact</a
+            >
           </div>
-          <button onclick="toggleCart()" class="relative p-3 bg-red-50 rounded-full hover:bg-red-100 transition group">
-            <svg class="w-6 h-6 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+          <button
+            onclick="toggleCart()"
+            class="relative p-3 bg-red-50 rounded-full hover:bg-red-100 transition group"
+          >
+            <svg
+              class="w-6 h-6 text-red-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
             </svg>
-            <span id="cartCount" class="cart-badge absolute -top-1 -right-1 bg-green-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center hidden">0</span>
+            <span
+              id="cartCount"
+              class="cart-badge absolute -top-1 -right-1 bg-green-600 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center hidden"
+              >0</span
+            >
           </button>
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden zobo-gradient">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+    <section
+      id="home"
+      class="relative min-h-screen flex items-center pt-20 overflow-hidden zobo-gradient"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid md:grid-cols-2 gap-12 items-center"
+      >
         <div class="text-white space-y-8">
-          <div class="inline-block px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm border border-white/30">
-            <span class="text-yellow-300 font-bold text-sm tracking-wider">100% NATURAL & ORGANIC</span>
+          <div
+            class="inline-block px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm border border-white/30"
+          >
+            <span class="text-yellow-300 font-bold text-sm tracking-wider"
+              >100% NATURAL & ORGANIC</span
+            >
           </div>
-          <h1 class="text-5xl md:text-7xl font-black leading-tight">Healthy <span class="gold-text">ZOBO</span><br /><span class="text-4xl md:text-6xl">Drink</span></h1>
-          <p class="text-xl text-red-100 max-w-lg leading-relaxed">Experience the refreshing taste of tradition with our premium hibiscus blend. Packed with Vitamin C, B2, B3, and powerful antioxidants.</p>
+          <h1 class="text-5xl md:text-7xl font-black leading-tight">
+            Healthy <span class="gold-text">ZOBO</span><br /><span
+              class="text-4xl md:text-6xl"
+              >Drink</span
+            >
+          </h1>
+          <p class="text-xl text-red-100 max-w-lg leading-relaxed">
+            Experience the refreshing taste of tradition with our premium
+            hibiscus blend. Packed with Vitamin C, B2, B3, and powerful
+            antioxidants.
+          </p>
           <div class="flex flex-wrap gap-4">
-            <button onclick="scrollToProducts()" class="px-8 py-4 bg-yellow-400 text-red-900 font-bold rounded-full hover:bg-yellow-300 transition transform hover:scale-105 shadow-2xl flex items-center gap-2">
+            <button
+              onclick="scrollToProducts()"
+              class="px-8 py-4 bg-yellow-400 text-red-900 font-bold rounded-full hover:bg-yellow-300 transition transform hover:scale-105 shadow-2xl flex items-center gap-2"
+            >
               Order Now
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
             </button>
-            <button onclick="scrollToAbout()" class="px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-red-700 transition">Learn More</button>
+            <button
+              onclick="scrollToAbout()"
+              class="px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-red-700 transition"
+            >
+              Learn More
+            </button>
           </div>
         </div>
         <div class="relative">
-          <img src="WhatsApp Image 2026-02-25 at 3.27.45 PM.jpeg" alt="Aly P&P Zobo Drink" class="relative z-10 w-2/3 mx-auto rounded-3xl shadow-2xl border-4 border-white/20" />
+          <img
+            src="WhatsApp Image 2026-02-25 at 3.27.45 PM.jpeg"
+            alt="Aly P&P Zobo Drink"
+            class="relative z-10 w-2/3 mx-auto rounded-3xl shadow-2xl border-4 border-white/20"
+          />
         </div>
       </div>
     </section>
@@ -106,8 +273,12 @@
     <section id="products" class="py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <span class="text-red-600 font-bold tracking-wider uppercase text-sm">Our Collection</span>
-          <h2 class="text-4xl md:text-5xl font-black text-gray-900 mt-2">Choose Your <span class="gold-text">Package</span></h2>
+          <span class="text-red-600 font-bold tracking-wider uppercase text-sm"
+            >Our Collection</span
+          >
+          <h2 class="text-4xl md:text-5xl font-black text-gray-900 mt-2">
+            Choose Your <span class="gold-text">Package</span>
+          </h2>
         </div>
         <div class="grid md:grid-cols-3 gap-8" id="productGrid"></div>
       </div>
@@ -115,13 +286,34 @@
 
     <!-- Cart Sidebar -->
     <div id="cartSidebar" class="fixed inset-0 z-50 hidden">
-      <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleCart()"></div>
-      <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl transform transition-transform duration-300 translate-x-full" id="cartContent">
+      <div
+        class="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        onclick="toggleCart()"
+      ></div>
+      <div
+        class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl transform transition-transform duration-300 translate-x-full"
+        id="cartContent"
+      >
         <div class="h-full flex flex-col">
           <div class="p-6 border-b flex justify-between items-center bg-red-50">
             <h2 class="text-2xl font-bold text-gray-900">Your Cart</h2>
-            <button onclick="toggleCart()" class="p-2 hover:bg-red-100 rounded-full transition">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            <button
+              onclick="toggleCart()"
+              class="p-2 hover:bg-red-100 rounded-full transition"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             </button>
           </div>
           <div id="cartItems" class="flex-1 overflow-y-auto p-6 space-y-4">
@@ -132,7 +324,10 @@
               <span>Total:</span>
               <span id="cartTotal" class="text-red-600">₦0</span>
             </div>
-            <button onclick="checkout()" class="w-full py-4 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 transition btn-order">
+            <button
+              onclick="checkout()"
+              class="w-full py-4 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 transition btn-order"
+            >
               Proceed to Checkout
             </button>
           </div>
@@ -141,15 +336,37 @@
     </div>
 
     <!-- Checkout Modal with Payment -->
-    <div id="checkoutModal" class="modal fixed inset-0 z-[60] items-center justify-center p-4 bg-black/60">
-      <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto slide-in">
-        <div class="p-6 border-b bg-gradient-to-r from-red-600 to-red-700 text-white rounded-t-3xl flex justify-between items-center">
+    <div
+      id="checkoutModal"
+      class="modal fixed inset-0 z-[60] items-center justify-center p-4 bg-black/60"
+    >
+      <div
+        class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto slide-in"
+      >
+        <div
+          class="p-6 border-b bg-gradient-to-r from-red-600 to-red-700 text-white rounded-t-3xl flex justify-between items-center"
+        >
           <div>
             <h2 class="text-2xl font-bold">Complete Your Order</h2>
             <p class="text-red-100 text-sm mt-1">Choose your payment method</p>
           </div>
-          <button onclick="closeCheckout()" class="text-white/80 hover:text-white">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          <button
+            onclick="closeCheckout()"
+            class="text-white/80 hover:text-white"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
           </button>
         </div>
 
@@ -157,8 +374,13 @@
           <!-- Order Summary -->
           <div class="bg-gray-50 p-4 rounded-xl">
             <h3 class="font-bold text-gray-900 mb-3">Order Summary</h3>
-            <div id="checkoutSummary" class="text-sm text-gray-600 space-y-2"></div>
-            <div class="border-t pt-3 mt-3 flex justify-between font-bold text-xl">
+            <div
+              id="checkoutSummary"
+              class="text-sm text-gray-600 space-y-2"
+            ></div>
+            <div
+              class="border-t pt-3 mt-3 flex justify-between font-bold text-xl"
+            >
               <span>Total:</span>
               <span id="checkoutTotal" class="text-red-600">₦0</span>
             </div>
@@ -169,25 +391,65 @@
             <h3 class="font-bold text-gray-900">Delivery Details</h3>
             <div class="grid grid-cols-2 gap-4">
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
-                <input type="text" id="firstName" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none" placeholder="John"/>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >First Name *</label
+                >
+                <input
+                  type="text"
+                  id="firstName"
+                  required
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none"
+                  placeholder="John"
+                />
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
-                <input type="text" id="lastName" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none" placeholder="Doe"/>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Last Name *</label
+                >
+                <input
+                  type="text"
+                  id="lastName"
+                  required
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none"
+                  placeholder="Doe"
+                />
               </div>
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-              <input type="email" id="email" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none" placeholder="john@example.com"/>
+              <label class="block text-sm font-medium text-gray-700 mb-1"
+                >Email *</label
+              >
+              <input
+                type="email"
+                id="email"
+                required
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none"
+                placeholder="john@example.com"
+              />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-              <input type="tel" id="phone" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none" placeholder="08063838960"/>
+              <label class="block text-sm font-medium text-gray-700 mb-1"
+                >Phone Number *</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                required
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none"
+                placeholder="08063838960"
+              />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Delivery Address *</label>
-              <textarea id="address" rows="2" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none" placeholder="7, Ogundele street, Lagos"></textarea>
+              <label class="block text-sm font-medium text-gray-700 mb-1"
+                >Delivery Address *</label
+              >
+              <textarea
+                id="address"
+                rows="2"
+                required
+                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none"
+                placeholder="7, Ogundele street, Lagos"
+              ></textarea>
             </div>
           </div>
 
@@ -196,76 +458,199 @@
             <h3 class="font-bold text-gray-900 mb-3">Select Payment Method</h3>
             <div class="space-y-3">
               <!-- Paystack (Card/Bank/Transfer) -->
-              <div class="payment-option border-2 border-gray-200 rounded-xl p-4 flex items-center gap-4" onclick="selectPayment('paystack')" id="paystack-option">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+              <div
+                class="payment-option border-2 border-gray-200 rounded-xl p-4 flex items-center gap-4"
+                onclick="selectPayment('paystack')"
+                id="paystack-option"
+              >
+                <div
+                  class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center"
+                >
+                  <svg
+                    class="w-6 h-6 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                    />
+                  </svg>
                 </div>
                 <div class="flex-1">
                   <h4 class="font-bold text-gray-900">Pay Online (Paystack)</h4>
-                  <p class="text-sm text-gray-500">Pay with Card, Bank Transfer, or USSD</p>
+                  <p class="text-sm text-gray-500">
+                    Pay with Card, Bank Transfer, or USSD
+                  </p>
                 </div>
-                <div class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center check-circle">
-                  <div class="w-3 h-3 rounded-full bg-red-600 hidden check-fill"></div>
+                <div
+                  class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center check-circle"
+                >
+                  <div
+                    class="w-3 h-3 rounded-full bg-red-600 hidden check-fill"
+                  ></div>
                 </div>
               </div>
 
               <!-- Cash on Delivery -->
-              <div class="payment-option border-2 border-gray-200 rounded-xl p-4 flex items-center gap-4" onclick="selectPayment('cod')" id="cod-option">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              <div
+                class="payment-option border-2 border-gray-200 rounded-xl p-4 flex items-center gap-4"
+                onclick="selectPayment('cod')"
+                id="cod-option"
+              >
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center"
+                >
+                  <svg
+                    class="w-6 h-6 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                    />
+                  </svg>
                 </div>
                 <div class="flex-1">
                   <h4 class="font-bold text-gray-900">Cash on Delivery</h4>
-                  <p class="text-sm text-gray-500">Pay when you receive your order</p>
+                  <p class="text-sm text-gray-500">
+                    Pay when you receive your order
+                  </p>
                 </div>
-                <div class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center check-circle">
-                  <div class="w-3 h-3 rounded-full bg-red-600 hidden check-fill"></div>
+                <div
+                  class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center check-circle"
+                >
+                  <div
+                    class="w-3 h-3 rounded-full bg-red-600 hidden check-fill"
+                  ></div>
                 </div>
               </div>
 
               <!-- Bank Transfer -->
-              <div class="payment-option border-2 border-gray-200 rounded-xl p-4 flex items-center gap-4" onclick="selectPayment('bank')" id="bank-option">
-                <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+              <div
+                class="payment-option border-2 border-gray-200 rounded-xl p-4 flex items-center gap-4"
+                onclick="selectPayment('bank')"
+                id="bank-option"
+              >
+                <div
+                  class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center"
+                >
+                  <svg
+                    class="w-6 h-6 text-yellow-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+                    />
+                  </svg>
                 </div>
                 <div class="flex-1">
                   <h4 class="font-bold text-gray-900">Bank Transfer</h4>
-                  <p class="text-sm text-gray-500">Transfer to our account before delivery</p>
+                  <p class="text-sm text-gray-500">
+                    Transfer to our account before delivery
+                  </p>
                 </div>
-                <div class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center check-circle">
-                  <div class="w-3 h-3 rounded-full bg-red-600 hidden check-fill"></div>
+                <div
+                  class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center check-circle"
+                >
+                  <div
+                    class="w-3 h-3 rounded-full bg-red-600 hidden check-fill"
+                  ></div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Bank Details (Hidden by default) -->
-          <div id="bankDetails" class="hidden bg-yellow-50 p-4 rounded-xl border border-yellow-200">
+          <div
+            id="bankDetails"
+            class="hidden bg-yellow-50 p-4 rounded-xl border border-yellow-200"
+          >
             <h4 class="font-bold text-yellow-800 mb-2">Bank Account Details</h4>
-            <p class="text-sm text-yellow-700">Bank: <strong>First Bank</strong></p>
-            <p class="text-sm text-yellow-700">Account Name: <strong>Aly P&P Healthy Drink</strong></p>
-            <p class="text-sm text-yellow-700">Account Number: <strong>1234567890</strong></p>
-            <p class="text-xs text-yellow-600 mt-2">Please send proof of payment to 0806-383-8960</p>
+            <p class="text-sm text-yellow-700">
+              Bank: <strong>First Bank</strong>
+            </p>
+            <p class="text-sm text-yellow-700">
+              Account Name: <strong>Aly P&P Healthy Drink</strong>
+            </p>
+            <p class="text-sm text-yellow-700">
+              Account Number: <strong>1234567890</strong>
+            </p>
+            <p class="text-xs text-yellow-600 mt-2">
+              Please send proof of payment to 0806-383-8960
+            </p>
           </div>
 
           <!-- Pay Button -->
-          <button onclick="processPayment()" id="payButton" class="w-full py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition transform hover:scale-[1.02] flex items-center justify-center gap-2">
+          <button
+            onclick="processPayment()"
+            id="payButton"
+            class="w-full py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition transform hover:scale-[1.02] flex items-center justify-center gap-2"
+          >
             <span>Complete Order</span>
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
           </button>
         </div>
       </div>
     </div>
 
     <!-- Payment Success Modal -->
-    <div id="successModal" class="modal fixed inset-0 z-[70] items-center justify-center p-4 bg-black/60">
-      <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center slide-in">
-        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <div
+      id="successModal"
+      class="modal fixed inset-0 z-[70] items-center justify-center p-4 bg-black/60"
+    >
+      <div
+        class="bg-white rounded-3xl max-w-md w-full p-8 text-center slide-in"
+      >
+        <div
+          class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+        >
+          <svg
+            class="w-10 h-10 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
         </div>
         <h2 class="text-2xl font-bold text-gray-900 mb-2">Order Placed!</h2>
-        <p class="text-gray-600 mb-6" id="successMessage">Your order has been received. We'll contact you shortly.</p>
-        <button onclick="closeSuccessModal()" class="w-full py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition">
+        <p class="text-gray-600 mb-6" id="successMessage">
+          Your order has been received. We'll contact you shortly.
+        </p>
+        <button
+          onclick="closeSuccessModal()"
+          class="w-full py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition"
+        >
           Continue Shopping
         </button>
       </div>
@@ -279,17 +664,48 @@
             <h2 class="text-4xl font-black text-gray-900 mb-6">Get in Touch</h2>
             <div class="space-y-6">
               <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                <div
+                  class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                  </svg>
                 </div>
                 <div>
                   <h4 class="font-bold text-gray-900">Address</h4>
-                  <p class="text-gray-600">7, Ogundele street off Princess Abiola street,<br/>Nobex Bustop, Lagos, Nigeria</p>
+                  <p class="text-gray-600">
+                    7, Ogundele street off Princess Abiola street,<br />Nobex
+                    Bustop, Lagos, Nigeria
+                  </p>
                 </div>
               </div>
               <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
                 </div>
                 <div>
                   <h4 class="font-bold text-gray-900">Phone</h4>
@@ -299,20 +715,54 @@
             </div>
           </div>
           <div class="bg-gray-50 rounded-3xl p-8 border-2 border-red-100">
-            <form name="contact" method="POST" data-netlify="true" class="space-y-4">
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              class="space-y-4"
+            >
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none" placeholder="Your name"/>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none"
+                  placeholder="Your name"
+                />
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none" placeholder="Your phone number"/>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Phone</label
+                >
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none"
+                  placeholder="Your phone number"
+                />
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none" placeholder="How can we help you?"></textarea>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Message</label
+                >
+                <textarea
+                  name="message"
+                  rows="4"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-red-500 outline-none"
+                  placeholder="How can we help you?"
+                ></textarea>
               </div>
-              <button type="submit" class="w-full py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition">Send Message</button>
+              <button
+                type="submit"
+                class="w-full py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition"
+              >
+                Send Message
+              </button>
             </form>
           </div>
         </div>
@@ -322,18 +772,51 @@
     <script>
       // Product Data
       const products = [
-        { id: 1, name: "Single Bottle", size: "50cl", price: 500, description: "Perfect for personal refreshment", image: "50cl.png", badge: "Popular" },
-        { id: 2, name: "Large Bottle", size: "1 Litre", price: 1500, description: "Share with friends and family", image: "75cl.png", badge: null },
-        { id: 3, name: "Party Keg", size: "5 Litres", price: 5000, description: "Perfect for large gatherings", image: "5ltrs2.png", badge: "Event Special" },
-        { id: 4, name: "Bulk Order", size: "Custom", price: 0, description: "Contact us for wholesale pricing", image: "bulk.png", badge: "Wholesale", custom: true },
+        {
+          id: 1,
+          name: "Single Bottle",
+          size: "50cl",
+          price: 500,
+          description: "Perfect for personal refreshment",
+          image: "50cl.png",
+          badge: "Popular",
+        },
+        {
+          id: 2,
+          name: "Large Bottle",
+          size: "1 Litre",
+          price: 1500,
+          description: "Share with friends and family",
+          image: "75cl.png",
+          badge: null,
+        },
+        {
+          id: 3,
+          name: "Party Keg",
+          size: "5 Litres",
+          price: 5000,
+          description: "Perfect for large gatherings",
+          image: "5ltrs2.png",
+          badge: "Event Special",
+        },
+        {
+          id: 4,
+          name: "Bulk Order",
+          size: "Custom",
+          price: 0,
+          description: "Contact us for wholesale pricing",
+          image: "bulk.png",
+          badge: "Wholesale",
+          custom: true,
+        },
       ];
 
       let cart = [];
       let selectedPaymentMethod = null;
 
       // Formspree Configuration - REPLACE WITH YOUR FORM ID
-      const FORMSPREE_FORM_ID = 'mwvrazgv'; // e.g., 'xqknyqvp'
-      const YOUR_EMAIL = 'peteralli479@gmail.com'; // Replace with your email
+      const FORMSPREE_FORM_ID = "mwvrazgv"; // e.g., 'xqknyqvp'
+      const YOUR_EMAIL = "peteralli479@gmail.com"; // Replace with your email
 
       // Render Products
       window.addEventListener("load", () => {
@@ -342,9 +825,11 @@
 
       function renderProducts() {
         const grid = document.getElementById("productGrid");
-        grid.innerHTML = products.map(product => `
+        grid.innerHTML = products
+          .map(
+            (product) => `
           <div class="product-card bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 relative group">
-            ${product.badge ? `<div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-lg">${product.badge}</div>` : ''}
+            ${product.badge ? `<div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-lg">${product.badge}</div>` : ""}
             <div class="relative h-64 overflow-hidden bg-gradient-to-b from-red-50 to-white">
               <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300/DC143C/FFFFFF?text=${encodeURIComponent(product.name)}'">
             </div>
@@ -362,12 +847,14 @@
               ${product.custom ? `<a href="#contact" class="block w-full py-3 bg-gray-800 text-white text-center font-bold rounded-xl hover:bg-gray-900 transition">Contact Us</a>` : `<button onclick="addToCart(${product.id})" class="w-full py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition flex items-center justify-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>Add to Cart</button>`}
             </div>
           </div>
-        `).join('');
+        `,
+          )
+          .join("");
       }
 
       function addToCart(productId) {
-        const product = products.find(p => p.id === productId);
-        const existingItem = cart.find(item => item.id === productId);
+        const product = products.find((p) => p.id === productId);
+        const existingItem = cart.find((item) => item.id === productId);
         if (existingItem) {
           existingItem.quantity++;
         } else {
@@ -382,7 +869,10 @@
         const cartItems = document.getElementById("cartItems");
         const cartTotal = document.getElementById("cartTotal");
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        const totalPrice = cart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0,
+        );
 
         if (totalItems > 0) {
           cartCount.textContent = totalItems;
@@ -392,9 +882,12 @@
         }
 
         if (cart.length === 0) {
-          cartItems.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
+          cartItems.innerHTML =
+            '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
         } else {
-          cartItems.innerHTML = cart.map(item => `
+          cartItems.innerHTML = cart
+            .map(
+              (item) => `
             <div class="flex gap-4 bg-gray-50 p-4 rounded-xl">
               <img src="${item.image}" class="w-20 h-20 object-cover rounded-lg" alt="${item.name}">
               <div class="flex-1">
@@ -411,13 +904,15 @@
               </div>
               <button onclick="removeFromCart(${item.id})" class="text-gray-400 hover:text-red-600 self-start"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
             </div>
-          `).join('');
+          `,
+            )
+            .join("");
         }
         cartTotal.textContent = `₦${totalPrice.toLocaleString()}`;
       }
 
       function updateQuantity(productId, change) {
-        const item = cart.find(item => item.id === productId);
+        const item = cart.find((item) => item.id === productId);
         if (item) {
           item.quantity += change;
           if (item.quantity <= 0) removeFromCart(productId);
@@ -426,7 +921,7 @@
       }
 
       function removeFromCart(productId) {
-        cart = cart.filter(item => item.id !== productId);
+        cart = cart.filter((item) => item.id !== productId);
         updateCart();
       }
 
@@ -449,9 +944,18 @@
         }
         toggleCart();
         const summary = document.getElementById("checkoutSummary");
-        const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-        summary.innerHTML = cart.map(item => `<div class="flex justify-between"><span>${item.name} x${item.quantity}</span><span>₦${(item.price * item.quantity).toLocaleString()}</span></div>`).join('');
-        document.getElementById("checkoutTotal").textContent = `₦${total.toLocaleString()}`;
+        const total = cart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0,
+        );
+        summary.innerHTML = cart
+          .map(
+            (item) =>
+              `<div class="flex justify-between"><span>${item.name} x${item.quantity}</span><span>₦${(item.price * item.quantity).toLocaleString()}</span></div>`,
+          )
+          .join("");
+        document.getElementById("checkoutTotal").textContent =
+          `₦${total.toLocaleString()}`;
         document.getElementById("checkoutModal").classList.add("active");
       }
 
@@ -462,45 +966,54 @@
       // Payment Selection
       function selectPayment(method) {
         selectedPaymentMethod = method;
-        
+
         // Reset all options
-        document.querySelectorAll('.payment-option').forEach(opt => {
-          opt.classList.remove('selected');
-          opt.querySelector('.check-fill').classList.add('hidden');
+        document.querySelectorAll(".payment-option").forEach((opt) => {
+          opt.classList.remove("selected");
+          opt.querySelector(".check-fill").classList.add("hidden");
         });
-        
+
         // Select clicked option
-        document.getElementById(`${method}-option`).classList.add('selected');
-        document.getElementById(`${method}-option`).querySelector('.check-fill').classList.remove('hidden');
-        
+        document.getElementById(`${method}-option`).classList.add("selected");
+        document
+          .getElementById(`${method}-option`)
+          .querySelector(".check-fill")
+          .classList.remove("hidden");
+
         // Show/hide bank details
         const bankDetails = document.getElementById("bankDetails");
-        if (method === 'bank') {
+        if (method === "bank") {
           bankDetails.classList.remove("hidden");
         } else {
           bankDetails.classList.add("hidden");
         }
-        
+
         // Update button text
         const btn = document.getElementById("payButton");
-        if (method === 'paystack') btn.innerHTML = '<span>Pay Now</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
-        else if (method === 'cod') btn.innerHTML = '<span>Place Order (Cash on Delivery)</span>';
-        else if (method === 'bank') btn.innerHTML = '<span>Place Order (Bank Transfer)</span>';
+        if (method === "paystack")
+          btn.innerHTML =
+            '<span>Pay Now</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
+        else if (method === "cod")
+          btn.innerHTML = "<span>Place Order (Cash on Delivery)</span>";
+        else if (method === "bank")
+          btn.innerHTML = "<span>Place Order (Bank Transfer)</span>";
       }
 
       // Send Email Notification Function
       async function sendOrderEmail(orderData) {
         try {
-          const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-              email: YOUR_EMAIL,
-              subject: `New Order - ${orderData.paymentMethod} - Aly P&P`,
-              message: `
+          const response = await fetch(
+            `https://formspree.io/f/${FORMSPREE_FORM_ID}`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify({
+                email: YOUR_EMAIL,
+                subject: `New Order - ${orderData.paymentMethod} - Aly P&P`,
+                message: `
 NEW ORDER RECEIVED
 
 Order Details:
@@ -516,25 +1029,26 @@ Payment Method: ${orderData.paymentMethod}
 Total Amount: ₦${orderData.totalAmount}
 
 Order Date: ${new Date().toLocaleString()}
-              `
-            })
-          });
-          
+              `,
+              }),
+            },
+          );
+
           if (response.ok) {
-            console.log('Email notification sent successfully');
+            console.log("Email notification sent successfully");
             return true;
           } else {
-            console.error('Failed to send email notification');
+            console.error("Failed to send email notification");
             return false;
           }
         } catch (error) {
-          console.error('Error sending email:', error);
+          console.error("Error sending email:", error);
           return false;
         }
       }
 
       // Process Payment
-      async function processPayment() {
+      function processPayment() {
         if (!selectedPaymentMethod) {
           alert("Please select a payment method");
           return;
@@ -551,52 +1065,109 @@ Order Date: ${new Date().toLocaleString()}
           return;
         }
 
-        const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-        const orderDetails = cart.map(i => `${i.name} x${i.quantity}`).join(', ');
+        const totalAmount = cart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0,
+        );
+        const orderDetails = cart
+          .map((i) => `${i.name} x${i.quantity}`)
+          .join(", ");
 
-        if (selectedPaymentMethod === 'paystack') {
-          // Paystack Payment
-          const handler = PaystackPop.setup({
-            key: 'pk_test_82e84421ea494d7fbea77f934b17d10203b9922e',
-            email: email,
-            amount: totalAmount * 100,
-            currency: 'NGN',
-            ref: 'ALYPEP_' + Math.floor(Math.random() * 1000000000),
-            metadata: {
-              custom_fields: [
-                { display_name: "First Name", variable_name: "first_name", value: firstName },
-                { display_name: "Last Name", variable_name: "last_name", value: lastName },
-                { display_name: "Phone", variable_name: "phone", value: phone },
-                { display_name: "Address", variable_name: "address", value: address },
-                { display_name: "Order Details", variable_name: "order", value: orderDetails }
-              ]
-            },
-            callback: async function(response) {
-              // Payment successful - send email notification
-              await sendOrderEmail({
-                firstName,
-                lastName,
-                email,
-                phone,
-                address,
-                orderDetails,
-                totalAmount,
-                paymentMethod: 'Paystack (Online Payment)'
-              });
-              
-              showSuccessModal('Payment successful! Your order has been placed. Reference: ' + response.reference);
-              cart = [];
-              updateCart();
-              closeCheckout();
-            },
-            onClose: function() {
-              alert('Payment cancelled. You can try again.');
-            }
-          });
-          handler.openIframe();
-        } else if (selectedPaymentMethod === 'cod') {
-          // Cash on Delivery - Send email notification
-          await sendOrderEmail({
+        // Disable button to prevent double clicks
+        const payButton = document.getElementById("payButton");
+        payButton.disabled = true;
+        payButton.innerHTML = "<span>Processing...</span>";
+
+        if (selectedPaymentMethod === "paystack") {
+          // Check if Paystack is loaded
+          if (typeof PaystackPop === "undefined") {
+            alert("Payment system loading... Please try again in a moment.");
+            payButton.disabled = false;
+            payButton.innerHTML =
+              '<span>Pay Now</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
+            return;
+          }
+
+          try {
+            const handler = PaystackPop.setup({
+              key: "pk_test_82e84421ea494d7fbea77f934b17d10203b9922e",
+              email: email,
+              amount: totalAmount * 100,
+              currency: "NGN",
+              ref:
+                "ALYPEP_" + Date.now() + "_" + Math.floor(Math.random() * 1000),
+              metadata: {
+                custom_fields: [
+                  {
+                    display_name: "First Name",
+                    variable_name: "first_name",
+                    value: firstName,
+                  },
+                  {
+                    display_name: "Last Name",
+                    variable_name: "last_name",
+                    value: lastName,
+                  },
+                  {
+                    display_name: "Phone",
+                    variable_name: "phone",
+                    value: phone,
+                  },
+                  {
+                    display_name: "Address",
+                    variable_name: "address",
+                    value: address,
+                  },
+                  {
+                    display_name: "Order Details",
+                    variable_name: "order",
+                    value: orderDetails,
+                  },
+                ],
+              },
+              callback: function (response) {
+                // Payment successful
+                sendOrderEmail({
+                  firstName,
+                  lastName,
+                  email,
+                  phone,
+                  address,
+                  orderDetails,
+                  totalAmount,
+                  paymentMethod: "Paystack (Online Payment)",
+                });
+
+                showSuccessModal(
+                  "Payment successful! Your order has been placed. Reference: " +
+                    response.reference,
+                );
+                cart = [];
+                updateCart();
+                closeCheckout();
+                payButton.disabled = false;
+              },
+              onClose: function () {
+                alert("Payment cancelled. You can try again.");
+                payButton.disabled = false;
+                payButton.innerHTML =
+                  '<span>Pay Now</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
+              },
+            });
+
+            handler.openIframe();
+          } catch (error) {
+            console.error("Paystack error:", error);
+            alert(
+              "Payment system error. Please try again or choose Cash on Delivery.",
+            );
+            payButton.disabled = false;
+            payButton.innerHTML =
+              '<span>Pay Now</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
+          }
+        } else if (selectedPaymentMethod === "cod") {
+          // Cash on Delivery
+          sendOrderEmail({
             firstName,
             lastName,
             email,
@@ -604,16 +1175,19 @@ Order Date: ${new Date().toLocaleString()}
             address,
             orderDetails,
             totalAmount,
-            paymentMethod: 'Cash on Delivery'
+            paymentMethod: "Cash on Delivery",
           });
-          
-          showSuccessModal('Order placed successfully! We will deliver your order and you can pay cash on delivery.');
+
+          showSuccessModal(
+            "Order placed successfully! We will deliver your order and you can pay cash on delivery.",
+          );
           cart = [];
           updateCart();
           closeCheckout();
-        } else if (selectedPaymentMethod === 'bank') {
-          // Bank Transfer - Send email notification
-          await sendOrderEmail({
+          payButton.disabled = false;
+        } else if (selectedPaymentMethod === "bank") {
+          // Bank Transfer
+          sendOrderEmail({
             firstName,
             lastName,
             email,
@@ -621,13 +1195,16 @@ Order Date: ${new Date().toLocaleString()}
             address,
             orderDetails,
             totalAmount,
-            paymentMethod: 'Bank Transfer'
+            paymentMethod: "Bank Transfer",
           });
-          
-          showSuccessModal('Order placed! Please complete your bank transfer and send proof of payment to 0806-383-8960. Your order will be processed once payment is confirmed.');
+
+          showSuccessModal(
+            "Order placed! Please complete your bank transfer and send proof of payment to 0806-383-8960. Your order will be processed once payment is confirmed.",
+          );
           cart = [];
           updateCart();
           closeCheckout();
+          payButton.disabled = false;
         }
       }
 
@@ -641,7 +1218,9 @@ Order Date: ${new Date().toLocaleString()}
       }
 
       function scrollToProducts() {
-        document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+        document
+          .getElementById("products")
+          .scrollIntoView({ behavior: "smooth" });
       }
 
       function scrollToAbout() {
