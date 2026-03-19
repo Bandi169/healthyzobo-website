@@ -25,9 +25,12 @@
     <meta property="og:url" content="https://healthyzobo.duckdns.org" />
     <meta property="og:type" content="website" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Paystack Script -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://healthyzobo.duckdns.org" />
+	<!-- Paystack Script -->
     <script src="https://js.paystack.co/v1/inline.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
@@ -825,7 +828,7 @@
       </div>
     </div>
 
-    <!-- Checkout Modal with Payment -->
+   <!-- Checkout Modal with Payment -->
     <div
       id="checkoutModal"
       class="modal fixed inset-0 z-[60] items-center justify-center p-4 bg-black/60"
@@ -1189,12 +1192,19 @@
       ];
 
       let cart = [];
-      let selectedPaymentMethod = null;
-      // Formspree Configuration - REPLACE WITH YOUR FORM ID
+	let selectedPaymentMethod = null
+	// Formspree Configuration - REPLACE WITH YOUR FORM ID
       const FORMSPREE_FORM_ID = "mwvrazgv"; // e.g., 'xqknyqvp'
       const YOUR_EMAIL = "peteralli479@gmail.com"; // Replace with your email
 
-      function renderProducts() {
+      // WAIT FOR EVERYTHING TO LOAD
+      window.addEventListener("load", () => {
+        console.log("healthyzobo.duckdns.org loaded - rendering products");
+        renderProducts();
+        initAnimations();
+      });
+
+     function renderProducts() {
         const grid = document.getElementById("productGrid");
         grid.innerHTML = products
           .map(
@@ -1419,7 +1429,7 @@ Order Date: ${new Date().toLocaleString()}
       }
 
       // Process Payment
-      async function processPayment() {
+      function processPayment() {
         if (!selectedPaymentMethod) {
           alert("Please select a payment method");
           return;
@@ -1444,68 +1454,101 @@ Order Date: ${new Date().toLocaleString()}
           .map((i) => `${i.name} x${i.quantity}`)
           .join(", ");
 
-        if (selectedPaymentMethod === "paystack") {
-          // Paystack Payment
-          const handler = PaystackPop.setup({
-            key: "pk_test_82e84421ea494d7fbea77f934b17d10203b9922e",
-            email: email,
-            amount: totalAmount * 100,
-            currency: "NGN",
-            ref: "ALYPEP_" + Math.floor(Math.random() * 1000000000),
-            metadata: {
-              custom_fields: [
-                {
-                  display_name: "First Name",
-                  variable_name: "first_name",
-                  value: firstName,
-                },
-                {
-                  display_name: "Last Name",
-                  variable_name: "last_name",
-                  value: lastName,
-                },
-                { display_name: "Phone", variable_name: "phone", value: phone },
-                {
-                  display_name: "Address",
-                  variable_name: "address",
-                  value: address,
-                },
-                {
-                  display_name: "Order Details",
-                  variable_name: "order",
-                  value: orderDetails,
-                },
-              ],
-            },
-            callback: async function (response) {
-              // Payment successful - send email notification
-              await sendOrderEmail({
-                firstName,
-                lastName,
-                email,
-                phone,
-                address,
-                orderDetails,
-                totalAmount,
-                paymentMethod: "Paystack (Online Payment)",
-              });
+        // Disable button to prevent double clicks
+        const payButton = document.getElementById("payButton");
+        payButton.disabled = true;
+        payButton.innerHTML = "<span>Processing...</span>";
 
-              showSuccessModal(
-                "Payment successful! Your order has been placed. Reference: " +
-                  response.reference,
-              );
-              cart = [];
-              updateCart();
-              closeCheckout();
-            },
-            onClose: function () {
-              alert("Payment cancelled. You can try again.");
-            },
-          });
-          handler.openIframe();
+        if (selectedPaymentMethod === "paystack") {
+          // Check if Paystack is loaded
+          if (typeof PaystackPop === "undefined") {
+            alert("Payment system loading... Please try again in a moment.");
+            payButton.disabled = false;
+            payButton.innerHTML =
+              '<span>Pay Now</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
+            return;
+          }
+
+          try {
+            const handler = PaystackPop.setup({
+              key: "pk_test_82e84421ea494d7fbea77f934b17d10203b9922e",
+              email: email,
+              amount: totalAmount * 100,
+              currency: "NGN",
+              ref:
+                "ALYPEP_" + Date.now() + "_" + Math.floor(Math.random() * 1000),
+              metadata: {
+                custom_fields: [
+                  {
+                    display_name: "First Name",
+                    variable_name: "first_name",
+                    value: firstName,
+                  },
+                  {
+                    display_name: "Last Name",
+                    variable_name: "last_name",
+                    value: lastName,
+                  },
+                  {
+                    display_name: "Phone",
+                    variable_name: "phone",
+                    value: phone,
+                  },
+                  {
+                    display_name: "Address",
+                    variable_name: "address",
+                    value: address,
+                  },
+                  {
+                    display_name: "Order Details",
+                    variable_name: "order",
+                    value: orderDetails,
+                  },
+                ],
+              },
+              callback: function (response) {
+                // Payment successful
+                sendOrderEmail({
+                  firstName,
+                  lastName,
+                  email,
+                  phone,
+                  address,
+                  orderDetails,
+                  totalAmount,
+                  paymentMethod: "Paystack (Online Payment)",
+                });
+
+                showSuccessModal(
+                  "Payment successful! Your order has been placed. Reference: " +
+                    response.reference,
+                );
+                cart = [];
+                updateCart();
+                closeCheckout();
+                payButton.disabled = false;
+              },
+              onClose: function () {
+                alert("Payment cancelled. You can try again.");
+                payButton.disabled = false;
+                payButton.innerHTML =
+                  '<span>Pay Now</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
+              },
+            });
+
+            handler.openIframe();
+          } catch (error) {
+            console.error("Paystack error:", error);
+            alert(
+              "Payment system error. Please try again or choose Cash on Delivery.",
+            );
+            payButton.disabled = false;
+            payButton.innerHTML =
+              '<span>Pay Now</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>';
+          }
         } else if (selectedPaymentMethod === "cod") {
-          // Cash on Delivery - Send email notification
-          await sendOrderEmail({
+          // Cash on Delivery
+          sendOrderEmail({
             firstName,
             lastName,
             email,
@@ -1522,9 +1565,10 @@ Order Date: ${new Date().toLocaleString()}
           cart = [];
           updateCart();
           closeCheckout();
+          payButton.disabled = false;
         } else if (selectedPaymentMethod === "bank") {
-          // Bank Transfer - Send email notification
-          await sendOrderEmail({
+          // Bank Transfer
+          sendOrderEmail({
             firstName,
             lastName,
             email,
@@ -1541,6 +1585,7 @@ Order Date: ${new Date().toLocaleString()}
           cart = [];
           updateCart();
           closeCheckout();
+          payButton.disabled = false;
         }
       }
 
@@ -1562,26 +1607,6 @@ Order Date: ${new Date().toLocaleString()}
       function scrollToAbout() {
         document.getElementById("about").scrollIntoView({ behavior: "smooth" });
       }
-      function initAnimations() {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = "1";
-              entry.target.style.transform = "translateY(0)";
-            }
-          });
-        });
-
-        document.querySelectorAll(".product-card").forEach((card) => {
-          observer.observe(card);
-        });
-      }
-
-      document
-        .getElementById("checkoutModal")
-        .addEventListener("click", (e) => {
-          if (e.target === e.currentTarget) closeCheckout();
-        });
     </script>
   </body>
 </html>
